@@ -1,22 +1,22 @@
 hystrix:
-  image: kbastani/hystrix-dashboard
+  image: bluemeric/2pnik_0:1465899579317752271.hthv78j2
   ports:
    - "7979:7979"
   links:
    - gateway
    - discovery
 discovery:
-  image: kbastani/discovery-microservice
+  image: bluemeric/1pnik_0:1465899579317752271.hthv78j2
   ports:
    - "8761:8761"
 configserver:
-  image: kbastani/config-microservice
+  image: bluemeric/3pnik_0:1465899579317752271.hthv78j2
   ports:
    - "8888:8888"
   links:
    - discovery
 gateway:
-  image: kbastani/api-gateway-microservice
+  image: bluemeric/4pnik_0:1465899579317752271.hthv78j2
   ports:
    - "10000:10000"
   links:
@@ -26,22 +26,22 @@ gateway:
    - movie
    - recommendation
 user:
-  image: kbastani/users-microservice
+  image: bluemeric/7pnik_0:1465899579317752271.hthv78j2
   links:
    - discovery
    - configserver
 movie:
-  image: kbastani/movie-microservice
+  image: bluemeric/6pnik_0:1465899579317752271.hthv78j2
   links:
    - discovery
    - configserver
 recommendation:
-  image: kbastani/recommendation-microservice
+  image: bluemeric/8pnik_0:1465899579317752271.hthv78j2
   links:
    - discovery
    - configserver
 moviesui:
-  image: kbastani/movies-ui
+  image: bluemeric/5pnik_0:1465899579317752271.hthv78j2
   ports:
      - "9006:9006"
   links:
